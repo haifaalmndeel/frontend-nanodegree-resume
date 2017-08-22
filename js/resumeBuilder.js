@@ -15,7 +15,7 @@ This is empty on purpose! Your code to build the resume will go here.
      		"school": "Udacity",
      		"dates": "2017",
      		"url": "http://example.com"
-     	}]
+     	}],
      	
      }
 
@@ -26,7 +26,7 @@ This is empty on purpose! Your code to build the resume will go here.
      		"location": "Riyadh",
      		"dates": "2017",
      		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
-     	}]
+     	}],
      	 
      }
 
@@ -36,7 +36,7 @@ This is empty on purpose! Your code to build the resume will go here.
      		"dates": "2017",
      		"images": ["http://example.com"] ,
      		"description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
-     	}]
+     	}],
      	
      }
 
@@ -50,13 +50,14 @@ This is empty on purpose! Your code to build the resume will go here.
      		"twitter": "haifaAlmndeel",
      		"location": "Riyadh",
      	},
-     	"welcome message": "hello nice to meet you",
+     	"welcomemessage": "hello nice to meet you",
      	"skills": ["awesomeness","positive","sleep","saving the universe"],
-     	"bioPic": "images/fry.jpg"
+     	"bioPic": "images/fry.jpg",
+       
      }
       
  
- // $("#main").append(InternationalizeButton);
+   // $("#main").append(internationalizeButton);
 
       var Role = "front-end developer";
    var formattedName = HTMLheaderName.replace("%data%","haifa almndeel");
@@ -64,20 +65,48 @@ This is empty on purpose! Your code to build the resume will go here.
    
    $("#header").prepend(formattedRole);
    $("#header").prepend(formattedName);
-   
+
+   var formattedwelcomeMsg =HTMLwelcomeMsg.replace("%data%",bio.welcomemessage);
+         $("#header").append(formattedwelcomeMsg);
+     
+         var formattedbioPic =HTMLbioPic.replace("%data%",bio.bioPic);
+         $("#header").append(formattedbioPic); 
+
+   var formattedContacts = HTMLcontactGeneric.replace("%data%",);
+   var formattedmobile = HTMLmobile.replace("%data%",bio.contacts.mobile[0])
+
+        function displayContacts(){
+        var formattedcontacts =HTMLmobile.replace("%data%",bio.contacts.mobile);
+        $("#topContacts").append(formattedcontacts);
+        var formattedcontacts =HTMLemail.replace("%data%",bio.contacts.email);
+        $("#topContacts").append(formattedcontacts);
+        var formattedcontacts =HTMLgithub.replace("%data%",bio.contacts.github);
+        $("#topContacts").append(formattedcontacts);
+        var formattedcontacts =HTMLtwitter.replace("%data%",bio.contacts.twitter);
+        $("#topContacts").append(formattedcontacts);
+        var formattedcontacts =HTMLlocation.replace("%data%",bio.contacts.location);
+        $("#topContacts").append(formattedcontacts);
+        }
+        displayContacts();
+
+       
 
      if (bio.skills.length >0) {
      	$("#header").append(HTMLskillsStart);
      	var formattedskill =HTMLskills.replace("%data%",bio.skills[0]);
      	$("#skills").append(formattedskill);
-     	var formattedskill =HTMLskills.replace("%data%",bio.skills[1])
+     	var formattedskill =HTMLskills.replace("%data%",bio.skills[1]);
      	$("#skills").append(formattedskill);
-     	var formattedskill =HTMLskills.replace("%data%",bio.skills[2])
+     	var formattedskill =HTMLskills.replace("%data%",bio.skills[2]);
      	$("#skills").append(formattedskill);
      	var formattedskill =HTMLskills.replace("%data%",bio.skills[3]);
      	$("#skills").append(formattedskill);
      }
-     
+
+         
+
+
+
      function displaywork(){
      	for(job in work.jobs){
      		$("#workExperience").append(HTMLworkStart);
@@ -96,19 +125,19 @@ This is empty on purpose! Your code to build the resume will go here.
 
      displaywork();
 
-  // /*
+
   $(document).click(function(loc) {
   	var x=loc.pageX;
   	var y=loc.pageY;
   	logClicks(x,y);
   });
- //  
  
- function inName(name) {
- 	name = name.trim().split(" ");
- 	name[1]=name[1].toUpperCase();
- 	name[0]=name[0].slices(0,1).toUpperCase()+name[0].slices(1).toLowerCase();
- 	return name+" "+name[1];
+ 
+ // function inName(name) {
+ // 	name = name.trim().split(" ");
+ // 	name[1]=name[1].toUpperCase();
+ // 	name[0]=name[0].slices(0,1).toUpperCase()+name[0].slices(1).toLowerCase();
+ // 	return name+" "+name[1];
  
  
 
@@ -133,4 +162,3 @@ This is empty on purpose! Your code to build the resume will go here.
  		}
  	}
  }
-}
