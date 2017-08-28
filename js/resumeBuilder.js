@@ -7,7 +7,7 @@ var education = {
         "location": "barcelona",
         "degree": "BA",
         majors: ["IT"],
-        "dateس": "2020",
+        "dates": "2020",
         "url": "http://example.com"
     }],
     onlineCourses: [{
@@ -27,7 +27,7 @@ var education = {
             var formattedNameDegree = formattedName + formattedDegree;
             $(".education-entry:last").append(formattedNameDegree);
 
-            var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dateس);
+            var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
             $(".education-entry:last").append(formattedDates);
 
             var formattedoLcation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
