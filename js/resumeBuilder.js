@@ -37,19 +37,19 @@ var education = {
         }
 
 
-        for (var i = 0; i < education.onlineCourses.length; i++) {
+        for (var j = 0; j < education.onlineCourses.length; j++) {
             $(".education-entry:last").append(HTMLonlineClasses);
 
-            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
-            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[j].school);
+            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[j].title);
 
             var formattedSchoolTitle = formattedTitle + formattedSchool;
             $(".education-entry:last").append(formattedSchoolTitle);
 
-            var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
-            $(".education-entry:last").append(formattedDates);
+            var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[j].dates);
+            $(".education-entry:last").append(formattedDate);
 
-            var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+            var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[j].url);
             $(".education-entry:last").append(formattedURL);
         }
     }
@@ -96,7 +96,7 @@ var projects = {
     ],
     display: function() {
 
-        for (project in projects.projects) {
+        for (var project in projects.projects) {
             $("#projects").append(HTMLprojectStart);
 
             var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -109,7 +109,7 @@ var projects = {
             $(".project-entry:last").append(formattedDescription);
 
             if (projects.projects[project].images.length > 0) {
-                for (image in projects.projects[project].images) {
+                for (var image in projects.projects[project].images) {
                     var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
                     $(".project-entry:last").append(formattedImage);
                 }
@@ -132,28 +132,30 @@ var bio = {
     skills: ["awesomeness", "positive", "saving the universe", "good with Technology"],
     "bioPic": "images/fry.jpg",
     display: function() {
-        var formattedcontacts = HTMLmobile.replace("%data%", bio.contacts.mobile);
-        $("#footerContacts").append(formattedcontacts);
-        var formattedcontacts = HTMLemail.replace("%data%", bio.contacts.email);
-        $("#footerContacts").append(formattedcontacts);
-        var formattedcontacts = HTMLgithub.replace("%data%", bio.contacts.github);
-        $("#footerContacts").append(formattedcontacts);
-        var formattedcontacts = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-        $("#footerContacts").append(formattedcontacts);
-        var formattedcontacts = HTMLlocation.replace("%data%", bio.contacts.locations);
-        $("#footerContacts").append(formattedcontacts);
 
-        var formattedcontacts = HTMLmobile.replace("%data%", bio.contacts.mobile);
-        $("#topContacts").append(formattedcontacts);
-        var formattedcontacts = HTMLemail.replace("%data%", bio.contacts.email);
-        $("#topContacts").append(formattedcontacts);
-        var formattedcontacts = HTMLgithub.replace("%data%", bio.contacts.github);
-        $("#topContacts").append(formattedcontacts);
-        var formattedcontacts = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-        $("#topContacts").append(formattedcontacts);
-        var formattedcontacts = HTMLlocation.replace("%data%", bio.contacts.locations);
-        $("#topContacts").append(formattedcontacts);
-    }
+        var formattedcontacts1 = HTMLmobile.replace("%data%", bio.contacts.mobile);
+        $("#topContacts").append(formattedcontacts1);
+        var formattedcontacts2 = HTMLemail.replace("%data%", bio.contacts.email);
+        $("#topContacts").append(formattedcontacts2);
+        var formattedcontacts3 = HTMLgithub.replace("%data%", bio.contacts.github);
+        $("#topContacts").append(formattedcontacts3);
+        var formattedcontacts4 = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+        $("#topContacts").append(formattedcontacts4);
+        var formattedcontacts5 = HTMLlocation.replace("%data%", bio.contacts.location);
+        $("#topContacts").append(formattedcontacts5);
+    
+
+        var formattedcontacts6 = HTMLmobile.replace("%data%", bio.contacts.mobile);
+        $("#footerContacts").append(formattedcontacts6);
+        var formattedcontacts7 = HTMLemail.replace("%data%", bio.contacts.email);
+        $("#footerContacts").append(formattedcontacts7);
+        var formattedcontacts8 = HTMLgithub.replace("%data%", bio.contacts.github);
+        $("#footerContacts").append(formattedcontacts8);
+        var formattedcontacts9 = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+        $("#footerContacts").append(formattedcontacts9);
+        var formattedcontacts10 = HTMLlocation.replace("%data%", bio.contacts.location);
+        $("#footerContacts").append(formattedcontacts10);
+	  }
 };
 
 bio.display();
@@ -163,11 +165,10 @@ education.display();
 
 
 
-
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedRole);
 
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
 $("#header").prepend(formattedName);
 
 var formattedwelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomemessage);
@@ -192,7 +193,7 @@ if (bio.skills.length > 0) {
 
 $("#mapDiv").append(googleMap);
 
-$("#projects").css("background-color", "#efede6");
-$("#workExperience").css("background-color", "#f9f7ed");
-$("#education").css("background-color", "#f9f7ed");
-$("#mapDiv").css("background-color", "#efede6");
+$("#projects").css("background-color", "rgba(251, 239, 203, 0.48)");
+$("#mapDiv").css("background-color", "rgba(251, 239, 203, 0.48)");
+$("#workExperience").css("background-color", "rgba(255, 236, 179, 0.62)");
+$("#education").css("background-color", "rgba(255, 236, 179, 0.62)");
